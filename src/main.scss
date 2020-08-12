@@ -1,0 +1,52 @@
+@import "./bs-custom";
+
+.container-fluid.layout {
+    padding: 40px 40px 0 40px;
+}
+#global-header {
+    line-height: 1.42;
+    letter-spacing: 0.3px;
+}
+
+.navbar--secondary {
+    margin-top: 11px;
+    margin-bottom: 36px;
+    .list-inline-item .active {
+        border-bottom: 1px solid $gray-600;
+        padding-bottom: 3px;
+    }
+}
+
+.card--project {
+    margin-bottom: 18px;
+    span {
+        margin-top: 5px;
+    }
+}
+
+#site-footer {
+    padding: 40px 0;
+}
+
+.project {
+    &--navbar {
+        margin-bottom: 36px;
+        &--titles {
+            height: 14px;
+            line-height: 28px;
+        }
+    }
+    &--description {
+        .contents {
+            margin-left: 112px;
+        }
+    }
+}
+
+.same-height {
+    display: table; /* Make the container element behave like a table */
+    width: 100%; /* Set full-width to expand the whole page */
+    .col {
+        display: table-cell;
+    }
+}

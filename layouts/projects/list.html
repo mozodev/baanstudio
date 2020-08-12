@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<!-- navbar secondary -->
+<div class="navbar--secondary">
+    <ul class="list-inline">
+        <li class="list-inline-item">
+            <a class="text-dark active" href="/projects">이름</a>
+        </li>
+        <li class="list-inline-item ml-2">
+            <a class="text-dark" href="/projects">시간</a>
+        </li>
+    </ul>
+    
+</div>
+
+<div class="row">
+    <div class="col-lg-4 project--navbar--titles">
+        <ul class="list-unstyled">
+            {{ range .Site.Data.projects }}
+            <li><a class="text-dark" href="/projects/test">{{ . }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+    <div class="col-lg-8">
+        <div class="row">
+            {{ range (seq 10) }}
+            <div class="col-md-6 card--project">
+                <a class="text-muted" href="/projects/test">
+                    <img class="img-fluid" src="https://via.placeholder.com/1200x900" alt="" /><br>
+                    <span>상하목장</span>
+                </a>
+            </div>
+            {{ end }}
+        
+        </div>
+        <!-- <img class="img-fluid" src="https://via.placeholder.com/2000x1500" alt="" /> -->
+    </div>
+</div>
+
+{{ end }}

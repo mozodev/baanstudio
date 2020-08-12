@@ -1,0 +1,57 @@
+{{ define "main" }}
+
+<!-- navbar secondary -->
+<div class="navbar--secondary">
+    <ul class="list-inline">
+        <li class="list-inline-item">
+            <a class="text-dark active" href="/projects">이름</a>
+        </li>
+        <li class="list-inline-item ml-2">
+            <a class="text-dark" href="/projects">시간</a>
+        </li>
+    </ul>
+</div>
+
+{{ partial "project-navbar.html" . }}
+
+<div class="row">
+    <div class="col-lg-4 project--description">
+        <ul class="list-unstyled float-right text-right">
+            <li>책</li>
+            <li>포스터</li>
+            <li>브료슈어</li>
+            <li>리플렛</li>
+            <li>초대장</li>
+        </ul>
+        <div class="contents">
+            /상하농원<br>
+            년도: 2019. 5<br>
+            의뢰: 사무소: 스페이스 포 컨템포러리 아트(유)<br>
+            협력: 상하 농원<br>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="row">
+            {{ range (seq 6) }}
+            <div class="card--project">
+                <a class="text-muted" href="#">
+                    <img class="img-fluid" src="https://via.placeholder.com/2000x1500" alt="" /><br>
+                    <span>상하목장</span>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<div class="row same-height">
+    <div class="col project--navbar--titles">
+        <ul class="list-unstyled d-block">
+            {{ range $index, $value := .Site.Data.projects }}
+            <li><a class="text-dark{{ if (eq $index 0) }} text-decoration-line-through{{ end }}" href="#">{{ $value }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+
+{{ end }}

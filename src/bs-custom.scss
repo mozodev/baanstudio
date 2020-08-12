@@ -1,0 +1,27 @@
+/*!
+ * Customized based on Bootstrap v5.0.0-alpha1 (https://getbootstrap.com/)
+ */
+
+$link-decoration: none;
+
+// $font-size-base: 0.75rem; // 12px
+$font-size-base: 0.875rem; // 14px
+$font-size-sm: $font-size-base * .875;
+$font-size-lg: $font-size-base * 1.25;
+
+$line-height-base: 2;
+$line-height-sm: 1.25;
+$line-height-lg: 2;
+
+$grid-gutter-width: 1.25rem;
+
+// 테마 색상 추가 시
+// https://github.com/twbs/bootstrap/issues/23908#issuecomment-336862134
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// $theme-colors: map-merge($theme-colors, (
+//   highlight: $primary
+// ));
+// @debug $theme-colors;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
