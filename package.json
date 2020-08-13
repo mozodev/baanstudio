@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p start:*",
     "start:hugo": "hugo server -D --bind 0.0.0.0",
-    "start:parcel": "parcel serve src/index.html --out-dir=assets --public-url=/static",
+    "start:parcel": "parcel serve src/index.html --out-dir=assets",
     "build": "run-s build:parcel build:hugo",
-    "build:hugo": "hugo --gc --minify",
-    "build:parcel": "rm -rf assets && parcel build src/index.html --out-dir=assets --public-url=/static"
+    "build:hugo": "hugo -D --gc --minify",
+    "build:parcel": "rm -rf assets && parcel build src/index.html --out-dir=assets"
   },
   "browserslist": "> 0.2%",
   "author": "",

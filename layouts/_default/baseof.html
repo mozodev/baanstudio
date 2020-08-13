@@ -7,7 +7,7 @@
     <title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
     <meta name="description"
         content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-    {{ $style := resources.GetMatch "main.*.css" }}
+    {{ $style := resources.GetMatch "main.*.css*" }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
 </head>
 
@@ -21,7 +21,7 @@
 
         {{ $js := resources.GetMatch "src.*.js" }}
     </div>
-    
+    {{ $js := resources.GetMatch "src.*.js*" }}
     <script src="{{ $js.Permalink }}"></script>
 
 </body>

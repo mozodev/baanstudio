@@ -8,4 +8,4 @@ var e=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{}],"Focm":[function(require,module,exports) {
 "use strict";var e=require("bootstrap"),t=a(require("cash-dom"));function a(e){return e&&e.__esModule?e:{default:e}}(0,t.default)(function(){(0,t.default)("html").addClass("dom-loaded"),(0,t.default)('<span class="text-muted">Appended with Cash</span>').appendTo((0,t.default)("footer .container")),document.querySelectorAll(".alert").forEach(function(t){new e.Alert(t)})});
 },{"bootstrap":"xqrD","cash-dom":"r5fF"}]},{},["Focm"], null)
-//# sourceMappingURL=/static/src.eb587711.js.map
+//# sourceMappingURL=/src.eb587711.js.map
