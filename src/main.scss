@@ -6,11 +6,10 @@
 #global-header {
     line-height: 1.42;
     letter-spacing: 0.3px;
+    margin-bottom: 36px;
 }
 
 .navbar--secondary {
-    margin-top: 11px;
-    margin-bottom: 36px;
     .list-inline-item .active {
         border-bottom: 1px solid $gray-600;
         padding-bottom: 3px;

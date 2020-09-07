@@ -1,16 +1,17 @@
 {
-  "name": "mozolog",
-  "version": "1.0.0",
-  "description": "mozo log",
+  "name": "baanstudio",
+  "version": "0.1.0",
+  "description": "baanstudio",
   "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p start:*",
+    "start:parcel": "parcel serve src/index.html --out-dir=assets/assets --no-source-maps",
     "start:hugo": "hugo server -D --bind 0.0.0.0",
-    "start:parcel": "parcel serve src/index.html --out-dir=assets",
-    "build": "run-s build:parcel build:hugo",
-    "build:hugo": "hugo -D --gc --minify",
-    "build:parcel": "rm -rf assets && parcel build src/index.html --out-dir=assets"
+    "build": "run-s clean build:parcel build:hugo",
+    "clean": "rm -rf public assets static",
+    "build:parcel": "parcel build src/index.html --out-dir=assets/assets",
+    "build:hugo": "hugo -D --gc --minify"
   },
   "browserslist": "> 0.2%",
   "author": "",

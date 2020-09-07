@@ -7,8 +7,9 @@
     <title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
     <meta name="description"
         content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-    {{ $style := resources.GetMatch "main.*.css*" }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Gothic+A1&subset=korean&display=swap">
+    {{ $style := resources.GetMatch "assets/main.*.css" }}
+    {{ with $style }}<link rel="stylesheet" href="{{ $style.Permalink }}">{{ end }}
 </head>
 
 <body>
@@ -21,8 +22,8 @@
 
         {{ $js := resources.GetMatch "src.*.js" }}
     </div>
-    {{ $js := resources.GetMatch "src.*.js*" }}
-    <script src="{{ $js.Permalink }}"></script>
+    {{ $js := resources.GetMatch "assets/app.*.js" }}
+    {{ with $js }}<script src="{{ $js.Permalink }}"></script>{{ end }}
 
 </body>
 
