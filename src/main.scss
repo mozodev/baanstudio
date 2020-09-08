@@ -7,13 +7,14 @@
     line-height: 1.42;
     letter-spacing: 0.3px;
     margin-bottom: 36px;
+    .menu--item--list {
+        padding-left: 34px;
+    }
 }
 
-.navbar--secondary {
-    .list-inline-item .active {
-        border-bottom: 1px solid $gray-600;
-        padding-bottom: 3px;
-    }
+.active {
+    border-bottom: 1px solid $gray-600;
+    padding-bottom: 3px;
 }
 
 .card--project {

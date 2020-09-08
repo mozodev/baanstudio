@@ -1,27 +1,24 @@
 <header id="global-header">
     <!-- navbar primary -->
-    <div class="row">
+    <div class="row g-0">
         <div class="col-md-3">
             <span id="site-name" class="py-3 mb-3">
                 <a class="text-dark" href="/">{{ .Site.Title }}</a>
             </span>
         </div>
-        <div class="col-md-6">
-            <!-- navbar secondary -->
-            <div class="navbar--secondary">
-                <a class="text-dark" href="/projects">목록</a>
-            </div>
+        <div class="col-md-6 menu--item--list">
+            <a class="text-dark active" href="/projects">목록</a>
         </div>
         <div class="col-md-3">
-            <div class="row">
-                <div class="col-md-6">
-                    검색  
+            <div class="row g-0">
+                <div class="col text-right">
+                    <a href="#">검색</a>
                 </div>
-                <div class="col-md-3 text-right">
-                    정보
+                <div class="col text-right">
+                    <a href="#">정보</a>
                 </div>
-                <div class="col-md-3 text-right">
-                    EN
+                <div class="col text-right">
+                    <a href="#">EN</a>
                 </div>
             </div>
         </div>

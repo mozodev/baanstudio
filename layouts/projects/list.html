@@ -5,12 +5,21 @@
     <ul class="list-inline">
         <li class="list-inline-item">
             <a class="text-dark active" href="/projects">이름</a>
+            {{ readFile (printf "/static/icons/ionic-swap.svg") | safeHTML }}
         </li>
         <li class="list-inline-item ml-2">
             <a class="text-dark" href="/projects">시간</a>
+            {{ readFile (printf "/static/icons/ionic-swap.svg") | safeHTML }}
+        </li>
+        <li class="list-inline-item ml-2">
+            <a class="text-dark active" href="/projects">분류</a>
+            <ul class="list-unstyled">
+                {{ range .Site.Data.types }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
         </li>
     </ul>
-    
 </div>
 
 <div class="row">
