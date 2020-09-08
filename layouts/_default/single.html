@@ -1,8 +1,8 @@
 {{ define "main" }} {{ $section := .Site.GetPage "section" .Section }}
 <article class="content block--content">
-    <header>
-        <span class="active">{{- .Title -}}</span>
-        <date>{{ .Date.Local.Format "2006-01-02" }}</date>
+    <header class="mb-5">
+        <div id="page-title"><span class="active">{{- .Title -}}</span></div>
+        {{/* <date>{{ .Date.Local.Format "2006-01-02" }}</date> */}}
     </header>
     <main>
         {{- .Content -}}
