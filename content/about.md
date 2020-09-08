@@ -14,9 +14,9 @@ second: |
   팩스: 02-737-1992    
   이메일: baan.kim@gmail.com, info@baanstudio.com    
 third: |
-  링크
+  사회 관계망 서비스
   
-  [페이스북]()    
-  [인스타그램]()    
+  [페이스북](https://www.facebook.com/baanstudio)    
+  [인스타그램](https://www.instagram.com/baanstudio)    
 ---
 
