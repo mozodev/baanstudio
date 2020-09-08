@@ -1,36 +1,40 @@
 {{ define "main" }}
 
-<!-- navbar secondary -->
-<div class="navbar--secondary">
-    <ul class="list-inline">
-        <li class="list-inline-item">
-            <a class="text-dark active" href="/projects">이름</a>
-            {{ readFile (printf "/static/icons/ionic-swap.svg") | safeHTML }}
-        </li>
-        <li class="list-inline-item ml-2">
-            <a class="text-dark" href="/projects">시간</a>
-            {{ readFile (printf "/static/icons/ionic-swap.svg") | safeHTML }}
-        </li>
-        <li class="list-inline-item ml-2">
-            <a class="text-dark active" href="/projects">분류</a>
-            <ul class="list-unstyled">
-                {{ range .Site.Data.types }}
-                <li>{{ . }}</li>
-                {{ end }}
-            </ul>
-        </li>
-    </ul>
-</div>
-
 <div class="row">
     <div class="col-lg-4 project--navbar--titles">
+        <!-- navbar secondary -->
+        <div class="navbar--secondary">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <div class="container-fluid p-0">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="text-dark active" href="/projects">이름</a>
+                            {{ readFile (printf "/static/icons/ionic-swap.svg") | safeHTML }}
+                        </li>
+                        <li class="nav-item ml-4">
+                            <a class="text-dark" href="/projects">시간</a>
+                            {{ readFile (printf "/static/icons/ionic-swap.svg") | safeHTML }}
+                        </li>
+                        <li class="nav-item ml-4">
+                            <a class="text-dark active" href="/projects">분류</a>
+                            <ul class="list-unstyled">
+                                {{ range .Site.Data.types }}
+                                <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
         <ul class="list-unstyled">
             {{ range .Site.Data.projects }}
             <li><a class="text-dark" href="/projects/test">{{ . }}</a></li>
             {{ end }}
         </ul>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-8 block--content">
         <div class="row">
             {{ range (seq 10) }}
             <div class="col-md-6 card--project">
