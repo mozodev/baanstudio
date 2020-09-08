@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <div class="row">
-    <div class="col-lg-4 project--navbar--titles">
+    <div class="col-lg-4 project--navbar--titles h-100">
         <!-- navbar secondary -->
         <div class="navbar--secondary">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -19,7 +19,7 @@
                             <a class="text-dark active" href="/projects">분류</a>
                             <ul class="list-unstyled">
                                 {{ range .Site.Data.types }}
-                                <li>{{ . }}</li>
+                                {{ range $key, $value := . }}<li>{{ $value }} / {{ humanize $key }}</li>{{ end}}
                                 {{ end }}
                             </ul>
                         </li>
@@ -30,13 +30,15 @@
 
         <ul class="list-unstyled">
             {{ range .Site.Data.projects }}
-            <li><a class="text-dark" href="/projects/test">{{ . }}</a></li>
+            <li>
+                <div class="year float-right" style="padding-right: 16px;">2019</div>
+                <a class="text-dark" href="/projects/test">{{ . }}</a></li>
             {{ end }}
         </ul>
     </div>
     <div class="col-lg-8 block--content">
         <div class="row">
-            {{ range (seq 10) }}
+            {{ range (seq 14) }}
             <div class="col-md-6 card--project">
                 <a class="text-muted" href="/projects/test">
                     <img class="img-fluid" src="/images/project@2x.jpg" alt="" /><br>

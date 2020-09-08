@@ -1,9 +1,9 @@
 
-- 책 / Book
-- 소책자 / Booklet
-- 브로슈어 / Brochure
-- 인쇄물 / Printed Matters
-- 포스터 / Poster
-- 광고 / Ad
-- 웹사이트 / Website
-- 아이텐티티 / Identity
+- book: 책
+- booklet: 소책자
+- brochure: 브로슈어
+- printed_matters: 인쇄물
+- poster: 포스터
+- ad: 광고
+- website: 웹사이트
+- identity: 아이텐티티

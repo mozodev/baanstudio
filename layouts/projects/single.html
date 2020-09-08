@@ -8,26 +8,23 @@
         </ul>
         {{ .Content }}
     </div>
-    <div class="col-lg-7 offset-md-1">
+    <div class="col-lg-6 offset-md-1">
         <div class="row">
             {{ range (seq 6) }}
             <div class="card--project">
                 <a class="text-muted" href="#">
-                    <img class="img-fluid" src="https://via.placeholder.com/2000x1500" alt="" /><br>
+                    <img class="img-fluid" src="/images/project@2x.jpg" alt="" /><br>
                     <span>상하목장</span>
                 </a>
             </div>
             {{ end }}
         </div>
     </div>
-</div>
-
-<div class="row same-height">
-    <div class="col project--navbar--titles">
-        <ul class="list-unstyled d-block">
-            {{ range $index, $value := .Site.Data.projects }}
-            <li><a class="text-dark{{ if (eq $index 0) }} text-decoration-line-through{{ end }}" href="#">{{ $value }}</a></li>
-            {{ end }}
+    <div class="col-lg-1">
+        <ul class="list-unstyled text-right">
+        {{ range $index, $row := .Site.Data.types }}
+        {{ range $key, $value := $row }}<li>{{ if eq $index 0}}<span class="active">{{ end }}{{ $value }}{{ if eq $index 0}}</span>{{ end }}</li>{{ end }}
+        {{ end}}
         </ul>
     </div>
 </div>
