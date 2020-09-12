@@ -149,8 +149,8 @@ function executeSearch(term) {
 
 
 document.addEventListener('click', event => {
-    // CMD-/ to show / hide Search
-    if (event.target.id == 'search-click') {
+    console.log(event.target.id);
+    if (event.target.id === 'search-click') {
         // Load json search index if first time invoking search
         // Means we don't load json unless searches are going to happen; keep user payload small unless needed
         if (firstRun) {
