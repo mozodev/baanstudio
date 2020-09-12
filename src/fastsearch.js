@@ -13,7 +13,6 @@ var resultsAvailable = false; // Did we get any search results?
 // The main keyboard event listener running the show
 //
 document.addEventListener('keydown', function (event) {
-
     // CMD-/ to show / hide Search
     if (event.metaKey && event.which === 191) {
         // Load json search index if first time invoking search
@@ -48,7 +47,7 @@ document.addEventListener('keydown', function (event) {
     // DOWN (40) arrow
     if (event.keyCode == 40) {
         if (searchVisible && resultsAvailable) {
-            console.log("down");
+            // console.log("down");
             event.preventDefault(); // stop window from scrolling
             if (document.activeElement == maininput) { first.focus(); } // if the currently focused element is the main input --> focus the first <li>
             else if (document.activeElement == last) { last.focus(); } // if we're at the bottom, stay there
@@ -131,9 +130,7 @@ function executeSearch(term) {
         resultsAvailable = false;
         searchitems = '';
     } else { // build our html
-        console.log(results.slice(0, 5));
         for ( let item in results.slice(0, 5)) { // only show first 5 results
-            console.log(results[item]);
             searchitems = searchitems + '<li><a href="' + results[item]['item'].permalink
                 + '" tabindex="0">' + '<span class="title">'
                 + results[item]['item'].title
@@ -149,3 +146,28 @@ function executeSearch(term) {
         last = list.lastChild.firstElementChild; // last result container — used for checking against keyboard up/down location
     }
 }
+
+
+document.addEventListener('click', event => {
+    // CMD-/ to show / hide Search
+    if (typeof event.target.id != 'undefined') {
+        // Load json search index if first time invoking search
+        // Means we don't load json unless searches are going to happen; keep user payload small unless needed
+        if (firstRun) {
+            loadSearch(); // loads our json data and builds fuse.js search index
+            firstRun = false; // let's never do this again
+        }
+
+        // Toggle visibility of search box
+        if (!searchVisible) {
+            document.getElementById("fastSearch").style.visibility = "visible"; // show search box
+            document.getElementById("searchInput").focus(); // put focus in input box so you can just start typing
+            searchVisible = true; // search visible
+        }
+        else {
+            document.getElementById("fastSearch").style.visibility = "hidden"; // hide search box
+            document.activeElement.blur(); // remove focus from search box 
+            searchVisible = false; // search not visible
+        }
+    }
+});
