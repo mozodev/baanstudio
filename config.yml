@@ -7,3 +7,10 @@ disableKinds:
   - RSS
   - taxonomy
   - taxonomyTerm
+outputs:
+  home:
+    - HTML
+    - JSON
+    - RSS
+  page:
+    - HTML

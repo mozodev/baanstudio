@@ -11,18 +11,21 @@
     "build": "run-s clean build:parcel build:hugo",
     "clean": "rm -rf public assets/assets",
     "build:parcel": "parcel build src/app.js --out-dir=assets/assets --no-source-maps",
-    "build:hugo": "hugo -D --gc --minify"
+    "build:hugo": "rm -rf public && hugo -D --gc --minify"
   },
   "browserslist": "> 0.2%",
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "bootstrap": "^5.0.0-alpha1",
-    "cash-dom": "^8.0.0",
     "npm-run-all": "^4.1.5",
     "parcel": "^2.0.0-beta.1",
     "parcel-bundler": "^1.12.4",
-    "popper.js": "^1.16.1",
     "sass": "^1.26.10"
+  },
+  "dependencies": {
+    "popper.js": "^1.16.1",
+    "bootstrap": "^5.0.0-alpha1",
+    "cash-dom": "^8.0.0",
+    "fuse.js": "^6.4.1"
   }
 }
