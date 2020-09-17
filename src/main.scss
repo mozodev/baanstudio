@@ -9,6 +9,9 @@
     letter-spacing: 0.3px;
     margin-bottom: 36px;
     .navbar {
+        .container-fluid {
+            align-items: flex-start;
+        }
         #site-name a {
             white-space: nowrap;
         }
@@ -64,42 +67,38 @@
 
 #fastSearch {
     visibility: hidden;
-    position: absolute;
-    right: 0px;
-    top: 0px;
     display: inline-block;
-    width: 300px;
+    max-width: 365px;
 }
 
-#fastSearch input {
-    padding: 4px 10px;
-    width: 100%;
-    height: 31px;
-    font-size: 1.6em;
-    color: #aaa;
-    font-weight: bold;
-    background-color: #000;
-    border-radius: 3px 3px 0px 0px;
-    border: none;
-    outline: none;
-    text-align: left;
-    display: inline-block;
-}
-
-#searchResults li {
-    list-style: none;
-    margin-left: 0em;
-    background-color: #333;
-    border-bottom: 1px dotted #000;
-}
-#searchResults li .title {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    display: inline-block;
+#searchInput {
+    border: 0;
+    &:focus {
+        outline: none;
+    }
 }
 
 #searchResults {
-    visibility: inherit;
-    display: inline-block;
-    width: 320px;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    top: 240px;
+    left: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #fff;
+
+    .searchTerm {
+        margin-bottom: 36px;
+    }
+    .list-unstyled {
+        border-top: 1px dashed $gray-600;
+        li {
+            padding: 4px 0;
+            border-bottom: 1px dashed $gray-600;
+        }
+    }
+    
 }

@@ -1,13 +1,18 @@
-import Fuse from 'fuse.js';
+import Fuse from 'fuse.js'
+import $ from 'cash-dom'
 
-var fuse; // holds our search engine
-var searchVisible = false;
-var firstRun = true; // allow us to delay loading json data unless search activated
-var list = document.getElementById('searchResults'); // targets the <ul>
-var first = list.firstChild; // first child of search list
-var last = list.lastChild; // last child of search list
-var maininput = document.getElementById('searchInput'); // input box for search
-var resultsAvailable = false; // Did we get any search results?
+let fuse;
+let searchVisible = false;
+let firstRun = true;
+let list = $('#searchResults .list-unstyled').get(0);
+let first = list.firstChild; 
+let last = list.lastChild;
+let maininput = $('#searchInput').get(0);
+let resultsAvailable = false;
+
+$(() => {
+    console.log('dom ready!');
+});
 
 // ==========================================
 // The main keyboard event listener running the show
@@ -116,58 +121,50 @@ function loadSearch() {
     });
 }
 
-
-// ==========================================
-// using the index we loaded on CMD-/, run 
-// a search query (for "term") every time a letter is typed
-// in the search box
-//
 function executeSearch(term) {
-    let results = fuse.search(term); // the actual query being run using fuse.js
-    let searchitems = ''; // our results bucket
+    let results = fuse.search(term)
+    let searchitems = ''
 
-    if (results.length === 0) { // no results based on what was typed into the input box
+    if (results.length === 0) {
         resultsAvailable = false;
         searchitems = '';
-    } else { // build our html
-        for ( let item in results.slice(0, 5)) { // only show first 5 results
-            searchitems = searchitems + '<li><a href="' + results[item]['item'].permalink
-                + '" tabindex="0">' + '<span class="title">'
+    } else { 
+        for ( let item in results) {
+            searchitems += '<li>'
+                + '<a href="' + results[item]['item'].permalink + '" tabindex="0">'
+                + '<span class="title">'
                 + results[item]['item'].title
-                + '</span><br /><span class="sc">' + results[item]['item'].type
-                + '</span> — ' + results[item]['item'].date + ' — <em>' + results[item]['item'].contents + '</em></a></li>';
+                + '</span><br />'
+                + '<span class="year-client">'
+                + '2012, 아트선재센터'
+                + '</span></a></li>'
         }
-        resultsAvailable = true;
+        resultsAvailable = true
     }
-
-    document.getElementById("searchResults").innerHTML = searchitems;
+    
+    $('#search-term').text(term)
+    list.innerHTML = searchitems
+    $('#searchResults').css('visibility', 'visible')
+    
     if (results.length > 0) {
-        first = list.firstChild.firstElementChild; // first result container — used for checking against keyboard up/down location
-        last = list.lastChild.firstElementChild; // last result container — used for checking against keyboard up/down location
+        first = list.firstChild.firstElementChild
+        last = list.lastChild.firstElementChild
     }
 }
 
-
-document.addEventListener('click', event => {
-    console.log(event.target.id);
-    if (event.target.id === 'search-click') {
-        // Load json search index if first time invoking search
-        // Means we don't load json unless searches are going to happen; keep user payload small unless needed
-        if (firstRun) {
-            loadSearch(); // loads our json data and builds fuse.js search index
-            firstRun = false; // let's never do this again
-        }
-
-        // Toggle visibility of search box
-        if (!searchVisible) {
-            document.getElementById("fastSearch").style.visibility = "visible"; // show search box
-            document.getElementById("searchInput").focus(); // put focus in input box so you can just start typing
-            searchVisible = true; // search visible
-        }
-        else {
-            document.getElementById("fastSearch").style.visibility = "hidden"; // hide search box
-            document.activeElement.blur(); // remove focus from search box 
-            searchVisible = false; // search not visible
-        }
+$('#search-click').on('click', event => {
+    if (firstRun) {
+        loadSearch()
+        firstRun = false
     }
-});
+    if (!searchVisible) {
+        $('#fastSearch').css('visibility', 'visible')
+        $('#searchInput').get(0).focus()
+        searchVisible = true
+    }
+    else {
+        $('#fastSearch').css({visibility: "hidden"});
+        document.activeElement.blur()
+        searchVisible = false
+    }
+})
