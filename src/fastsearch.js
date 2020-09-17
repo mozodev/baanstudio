@@ -114,7 +114,7 @@ function loadSearch() {
             keys: [
                 'title',
                 'permalink',
-                'summary'
+                'content'
             ]
         };
         fuse = new Fuse(data, options); // build the index from the json file
