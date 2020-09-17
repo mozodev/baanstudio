@@ -3,12 +3,18 @@
 .container-fluid.layout {
     padding: 40px 40px 0 40px;
 }
+
 #global-header {
     line-height: 1.42;
     letter-spacing: 0.3px;
     margin-bottom: 36px;
-    .menu--item--list {
-        padding-left: 34px;
+    .navbar {
+        #site-name a {
+            white-space: nowrap;
+        }
+        .menu--item--list {
+            margin-left: 34px;
+        }
     }
 }
 
@@ -96,15 +102,4 @@
     visibility: inherit;
     display: inline-block;
     width: 320px;
-}
-#searchResults a {
-    text-decoration: none !important;
-    padding: 10px;
-    display: inline-block;
-}
-#searchResults a:hover,
-a:focus {
-    outline: 0;
-    background-color: #666;
-    color: #fff;
 }
